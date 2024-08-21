@@ -59,3 +59,13 @@ html[dir="rtl"] .demo-oracle-icon {
 .demo-percentage-width {
   width: 50% !important;
 }
+
+.demo-panel-progress {
+  width: 12.5rem;
+  height: 12.5rem;
+  padding: 0;
+}
+
+.demo-width {
+  width: 12.5rem;
+}

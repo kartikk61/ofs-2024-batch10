@@ -20,7 +20,7 @@
       mask-icon="visible"
       class="demo-rem-max-width"></oj-input-password>
   </oj-form-layout>
-  <h5 class="oj-sm-margin-4x-top">Date & Time</h5>
+  <h5 class="oj-sm-margin-4x-top">Birth date</h5>
   <oj-form-layout>
     <oj-input-date-time 
     value="{{tarik}}" 
@@ -28,44 +28,54 @@
     class="demo-rem-max-width"></oj-input-date-time>
   </oj-form-layout>
   
-  <h6 class="oj-sm-margin-4x-top">Radioset</h6>
+  <h6 class="oj-sm-margin-4x-top">Choose your device</h6>
             <oj-form-layout max-columns="3" direction="row">
               <oj-radioset id="enabledRadioset" value="laptop" label-hint="Enabled">
                 <oj-option value="desktop">Desktop</oj-option>
                 <oj-option value="laptop">Laptop</oj-option>
                 <oj-option value="tablet">Tablet</oj-option>
-              
               </oj-radioset>
             </oj-form-layout>
-  <h6 class="oj-sm-margin-4x-top">Checkboxset</h6>
+  <h6 class="oj-sm-margin-4x-top">Device used for</h6>
   <oj-form-layout max-columns="3" direction="row">
     <oj-checkboxset id="enabledCheckboxset" value='["laptop","tablet"]' label-hint="Enabled">
-      <oj-option value="desktop">Desktop</oj-option>
-      <oj-option value="laptop">Laptop</oj-option>
-      <oj-option value="tablet">Tablet</oj-option>
+      <oj-option value="desktop">Personal</oj-option>
+      <oj-option value="laptop">Work</oj-option>
+      <!-- <oj-option value="tablet"></oj-option> -->
     </oj-checkboxset>
 
-    <oj-progress-bar
-    id="progressBar"
-    aria-label="basic progress bar"
-    value="[[indeterminate().length > 0 ? -1 : progressValue]]"></oj-progress-bar>
-  <br />
-  <oj-form-layout aria-controls="progressBar">
-    <oj-checkboxset id="indeterminateCheckbox" value="{{indeterminate}}">
-      <oj-option id="indeterminate" value="indeterminate">Indeterminate</oj-option>
-    </oj-checkboxset>
-    <oj-input-number
-      id="spinner-input"
-      step="10"
-      value="{{progressValue}}"
-      label-hint="Value"
-      disabled="[[indeterminate().length > 0]]"
-      min="0"
-      max="100"></oj-input-number>
-  </oj-form-layout>
+    <div>
+      <h6 class="oj-sm-margin-4x-top">Drop down using combobox</h6>
+      <oj-form-layout>
+        <oj-combobox-one
+        id="combobox1"
+        value="Chrome"
+        label-hint="Select browser"
+        class="demo-rem-max-width">
+        <oj-option value="Internet Explorer">Internet Explorer</oj-option>
+        <oj-option value="Firefox">Firefox</oj-option>
+        <oj-option value="Chrome">Chrome</oj-option>
+        <oj-option value="Opera">Opera</oj-option>
+        <oj-option value="Safari">Safari</oj-option>
+      </oj-combobox-one>
+      
+    </oj-form-layout>
+    </div>
+<div>
+  
+  <oj-progress-bar
+  class="oj-sm-margin-4x-bottom demo-width"
+  id="progressBar"
+  aria-labelledby="detLabel"
+  value="[[progressValue]]"></oj-progress-bar> 
+  <!-- <oj-progress-bar value="[[progressValue]]"></oj-progress-bar> -->
+  
+  <hr class="oj-sm-margin-4x-vertical" /> 
+  
+</div>
 
   <oj-popup id="popup1">
     <span class="demo-blink-rainbow">Hello World!!!</span>
   </oj-popup>
-  <oj-button id="btnGo" on-oj-action="[[openListener]]">Go</oj-button>
+  <oj-button id="btnGo" on-oj-action="[[openListener]]">Go</oj-button>   
 </div>

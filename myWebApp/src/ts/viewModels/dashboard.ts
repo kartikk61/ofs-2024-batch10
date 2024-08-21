@@ -23,12 +23,18 @@ import 'ojs/ojlabel';
 import 'ojs/ojpopup';
 import { ojPopup } from 'ojs/ojpopup';
 import 'ojs/ojformlayout';
+import 'ojs/ojselectcombobox';
+import 'ojs/ojprogress-bar';
 class DashboardViewModel {
   value: ko.Observable<string>;
   pwd:ko.Observable<string>;
   tarik: ko.Observable<string>;
-  readonly progressValue = ko.observable(20);
+  // readonly progressValue = ko.observable(20);
   readonly indeterminate = ko.observableArray();
+  private readonly step = ko.observable(0);
+  readonly progressValue = ko.pureComputed(() => {
+    return Math.min(this.step(), 100);
+  });
   public openListener() {
     let popup = document.getElementById('popup1') as ojPopup;
     popup.open('#btnGo');
@@ -37,7 +43,9 @@ class DashboardViewModel {
     this.value = ko.observable('');
     this.pwd=ko.observable('');
     this.tarik=ko.observable('2022-12-20T10:00:00Z');
-    
+    window.setInterval(() => {
+      this.step((this.step() + 1) % 200);
+    }, 30)
   }
 }
 
